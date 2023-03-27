@@ -28,7 +28,7 @@ Route::controller(AppointmentController::class)->group(function () {
     Route::get('getAppointment/{id}/', 'getAppointment');
 });
 
-Route::controller(AdminController::class)->prefix('admin/')->name('api.admin.')->group(function () {
+Route::controller(AdminController::class)->prefix('admin/')->name('admin.')->middleware('admin')->group(function () {
     Route::get('home', 'index')->name('route');
     Route::get('booked', 'todayBooked')->name('booked');
     Route::get('All/booked', 'allBooked')->name('all.booked');
